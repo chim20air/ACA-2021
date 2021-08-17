@@ -1,1 +1,0 @@
--wto "1bcb2e208a4e4959a5b850a66aa441e3" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "uvm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "deco2_to_4_tb_behav" "xil_defaultlib.deco2_to_4_tb" "xil_defaultlib.glbl" -log "elaborate.log" 
