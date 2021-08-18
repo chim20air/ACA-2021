@@ -22,8 +22,9 @@
 
 module rotate_right(
     input  logic [7 : 0] in,
+    input  logic [2 : 0] amt,
     output logic [7 : 0] out
     );
 
-    assign out = {in[6 : 0], in[7]};
+    assign out = {in, in} >> amt;
 endmodule

@@ -24,17 +24,26 @@ module test_barrel_8bit_tb(
     );
     
      //signal declaration
-    logic [7:0] test_word0, test_out;
-    logic test_sel;
+    logic [7 : 0] sw, led;
+    logic [2 : 0] amt;
+    logic sel;
     
-    top_8bit dut(test_word0, test_sel, test_out);
+    integer i, j;
+    top_8bit dut (.*);
     
     initial begin
-        test_word0 = 8'b0010;
-        test_sel = 1'b0;
-        #50;
-        test_sel = 1'b1;
-        #50;
+        sw = 8'b01000100;
+        sel = 1'b0;
+        amt = 3'h1;
+        #10;
+        for(i = 0;i < 2; i = i + 1) begin
+        	for(j = 0;j < 8; j = j + 1) begin
+        		amt = amt + 4'h1;
+        		#10;
+        	end
+        	sel = 1'b1;
+        	#10;
+        end 
         $stop;
     end
 endmodule

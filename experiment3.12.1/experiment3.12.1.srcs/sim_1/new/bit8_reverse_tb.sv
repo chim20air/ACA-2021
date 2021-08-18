@@ -1,11 +1,11 @@
-`timescale 1ns / 10ps
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/11/2021 08:32:25 PM
+// Create Date: 08/17/2021 08:59:05 PM
 // Design Name: 
-// Module Name: rotate_left
+// Module Name: bit8_reverse_tb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module rotate_left(
-    input  logic [7 : 0] in,
-    input  logic [2 : 0] amt,
-    output logic [7 : 0] out
+module bit8_reverse_tb(
     );
-
-    assign out = {in, in} << amt;
+    
+    logic [7 : 0] in, out;
+    integer i;
+    bit8_reverse dut (.*);
+    initial begin
+        in = 8'b01001000;
+        #10;
+        $stop;
+    end
 endmodule

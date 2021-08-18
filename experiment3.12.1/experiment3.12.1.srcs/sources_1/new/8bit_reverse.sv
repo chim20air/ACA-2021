@@ -1,11 +1,11 @@
-`timescale 1ns / 10ps
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/11/2021 08:32:25 PM
+// Create Date: 08/17/2021 08:52:59 PM
 // Design Name: 
-// Module Name: rotate_left
+// Module Name: 8bit_reverse
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module rotate_left(
-    input  logic [7 : 0] in,
-    input  logic [2 : 0] amt,
-    output logic [7 : 0] out
+module bit8_reverse(
+    input [7:0] in,
+    output [7:0] out
     );
-
-    assign out = {in, in} << amt;
+    
+    generate
+    	genvar i;
+    	
+    	for(i = 0;i < 8; i++) begin
+    		assign out[i] = in[7 - i];
+    	end
+    endgenerate
 endmodule
