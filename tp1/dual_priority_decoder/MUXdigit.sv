@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/17/2021 08:59:05 PM
+// Create Date: 08/26/2021 03:16:40 PM
 // Design Name: 
-// Module Name: bit8_reverse_tb
+// Module Name: MUXdigit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,15 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module bit8_reverse_tb(
+module MUXdigit(
+    input  logic [7:0] nro1,
+    input  logic [7:0] nro2,
+    input  logic [1:0] sel,
+    output logic [7:0] digito
     );
-    
-    logic [7 : 0] in, out;
-    integer i;
-    bit8_reverse dut (.*);
-    initial begin
-        in = 8'b01001000;
-        #10;
-        $stop;
+
+    always_comb begin
+        case (~sel)
+            2'b01: digito = nro1;
+            2'b10: digito = nro2;
+            default: digito = 0;
+        endcase
     end
 endmodule
