@@ -81,7 +81,8 @@ module FSM(
 
             POS_2:
                 begin
-                    if (sensor1 && ~sensor2 || ~sensor1 && sensor2) begin
+                    if ( sensor1 && ~sensor2 && dir_reg == LEAVING ||
+                        ~sensor1 &&  sensor2 && dir_reg == ENTERING) begin
                         state_next = POS_3;
                     end
                     else begin

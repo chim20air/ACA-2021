@@ -29,6 +29,7 @@ module contador
 						  .digit(digit[i].digito),
 						  .overflow(pulso[i + 1])
 						 );
+			assign digit[i].dp = 1'b0;
 		end
 	endgenerate
 endmodule
