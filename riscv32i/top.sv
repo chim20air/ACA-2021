@@ -21,7 +21,8 @@
 
 
 module top(
-        input logic clk, rst
+        input  logic clk, rst,
+        output logic [31 : 0] rd
     );
 
     logic          RegWrite;
@@ -54,4 +55,6 @@ module top(
                    .wd(rd2),
                    .rd(ReadData)
     );
+    
+    assign rd = ReadData;
 endmodule
