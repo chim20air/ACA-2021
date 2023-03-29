@@ -1,22 +1,22 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Company:
 // Engineer: Adrian Evaraldo
-// 
+//
 // Create Date: 09/26/2021 04:21:33 PM
-// Design Name: 
+// Design Name:
 // Module Name: top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name:
+// Target Devices:
+// Tool Versions:
+// Description:
+//
+// Dependencies:
+//
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -39,6 +39,7 @@ module top
     logic [ 6 : 0] opcode, funct7;
     logic [31 : 0] ProgramCounter, ALUResult, rd2;
 
+    (* DONT_TOUCH = "true" *)
     ControlUnit U_control(.*);
 
     DataPath D_Path(
@@ -67,7 +68,7 @@ module top
                     .rd2M(rd2)
     );
 
-    InstructionMemory 
+    InstructionMemory
         Instrucciones(
                       .a(ProgramCounter),
                       .rd(InstrF)
